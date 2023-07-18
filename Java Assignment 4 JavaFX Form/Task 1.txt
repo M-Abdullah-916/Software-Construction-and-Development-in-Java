@@ -1,0 +1,48 @@
+package App.java;
+
+import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.TilePane;
+
+public class App extends Application {
+	public static void main(String[] args) {
+		launch();
+	}
+
+	@Override
+	public void start(Stage stage) throws Exception {
+
+		Pane pane = new Pane();
+		TextField text = new TextField();
+		text.setText("Jinga Lala Huhu");
+		Button btn = new Button();
+		btn.setText("Hello World");
+		TilePane tile = new TilePane();
+		pane.getChildren().add(text);
+		btn.textProperty().addListener(new ChangeListener<String>() {
+
+			@Override
+			public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+				text.setText("Allah di Qasmien !!!");
+				
+			}
+		
+			
+		});
+		pane.getChildren().add(btn);
+		tile.getChildren().add(text);
+		tile.getChildren().add(btn);
+		Scene scene = new Scene(tile, 400, 400);
+		stage.setScene(scene);
+		stage.setTitle("My 1st Java Application");
+		stage.show();
+
+	}
+
+}
